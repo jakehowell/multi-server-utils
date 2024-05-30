@@ -1,0 +1,19 @@
+{
+  "name": "crm-server-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysqli": "^3.1.4",
+    "sequelize": "^6.30.0",
+    "sqlite3": "^5.1.6"
+  }
+}

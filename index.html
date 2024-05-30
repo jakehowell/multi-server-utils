@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Server Utility</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo"></div>
+            <h1>Server Utility</h1>
+        </header>
+        <div class="interface">
+            <form action="/" method="get" id="process-form">
+                <button class="history-toggle" alt="History" title="History"></button>
+                <div class="process-tabs">
+                    <div class="tabs">
+                        <button class="tab active" title="Search the logs across multiple servers" data-process="search" onclick="openTab(event, 'search')">Search</a>
+                        <button class="tab" title="Run a command across multiple servers" data-process="run" onclick="openTab(event, 'command')">Command</a>
+                    </div>
+                    <div class="process-types">
+                        <div id="search" class="tab-content active">
+                            <div class="log-path-wrapper"><input type="text" id="log-path" name="log-path" placeholder="Log path"><button class="icon-button directory-listing-toggle"></button></div>
+                            <input type="text" id="log-search" name="log-search" placeholder="Search logs for...">
+                        </div>
+                        <div id="command" class="tab-content">
+                            <input type="text" id="command" name="command" placeholder="Run Command...">
+                        </div>
+                    </div>
+                </div>
+                <div class="servers">
+                    <h3>Servers</h3>
+                    <div class="environments">
+                        <label for="all"></label><input type="checkbox" group="all" id="all" value="all" name="all"> All</label>
+                    </div>
+
+                </div>
+                <div class="submit">
+                    <button type="button" id="execute">Search</button>
+                </div>
+            </form>
+            <div class="output">
+                <div class="output-header">
+                    <h2>Results</h2>
+                    <button type="button" id="download"></button>
+                </div>
+                <div class="raw"></div>
+            </div>
+        </div>
+        <div class="modal-overlay" onclick="hideModal(event)">
+            <div class="modal">
+                <div class="modal-header"><h2 class="modal-title"></h2></div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="modal-close" onclick="hideModal(event)">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="directory-listing-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title">Directory Browser<h2>
+                <div class="current-server"></div>
+            </div>
+            <div class="modal-body">
+                <div class="current-directory" current-path=""></div>
+                <ul class="files"></ul>
+            </div>
+        </div>
+        <div class="loading"></div>
+        <script src="/interface.js"></script>
+    </body>
+</html>
